@@ -2,7 +2,7 @@ from rdkit import Chem
 from rdkit.Chem import Draw
 
 # Define a SMILES string
-smiles = "C(CCO)CCO"  # Ethanol
+smiles = "CCCC(C)CCCO"  # Ethanol
 
 # Convert SMILES to an RDKit molecule object
 mol = Chem.MolFromSmiles(smiles)

@@ -8,10 +8,6 @@ qm9_data = pd.read_csv('qm9.csv')
 # Function to check for simple alcohols while excluding ethers
 def is_simple_alcohol(smiles):
     mol = Chem.MolFromSmiles(smiles)
-
-    if mol is None:  # Handle invalid SMILES
-        return False
-
     # Check that the molecule contains only C, H, and O atoms
     for atom in mol.GetAtoms():
         if atom.GetSymbol() not in {'C', 'H', 'O'}:
@@ -32,7 +28,7 @@ def is_simple_alcohol(smiles):
     return mol.HasSubstructMatch(alcohol_pattern)
 
 
-# Apply the function to the dataset
+
 qm9_data['is_simple_alcohol'] = qm9_data['smiles'].apply(is_simple_alcohol)
 
 # Filter the dataset to keep only simple alcohols
@@ -41,8 +37,8 @@ simple_alcohols = qm9_data[qm9_data['is_simple_alcohol'] == True]
 # Count total number of alcohols found (excluding ethers)
 total_alcohols = simple_alcohols.shape[0]
 
-# Save the filtered dataset to a new CSV file
+
 simple_alcohols.to_csv('qm9_simple_alcohols_excluding_ethers.csv', index=False)
 
-# Print the total number of alcohols found
+
 print(f"Filtered {total_alcohols} simple alcohols (excluding ethers) from the QM9 dataset.")
