@@ -33,12 +33,12 @@ qm9_data['is_simple_alcohol'] = qm9_data['smiles'].apply(is_simple_alcohol)
 
 # Filter the dataset to keep only simple alcohols
 simple_alcohols = qm9_data[qm9_data['is_simple_alcohol'] == True]
-
+simple_alcohols = simple_alcohols[['smiles','mu']]
 # Count total number of alcohols found (excluding ethers)
 total_alcohols = simple_alcohols.shape[0]
 
 
-simple_alcohols.to_csv('qm9_simple_alcohols_excluding_ethers.csv', index=False)
+simple_alcohols.to_csv('simp_alc.csv', index=False)
 
 
 print(f"Filtered {total_alcohols} simple alcohols (excluding ethers) from the QM9 dataset.")
