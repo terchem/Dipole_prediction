@@ -83,7 +83,7 @@ print(f"Total successful 3D conformers: {total_success}")
 successful_conformers_path = "successful_conformers.csv"
 successful_conformers.to_csv(successful_conformers_path, index=False)
 
-print(f"Filtered dataset with successful conformers saved as: {successful_conformers_path}")
+
 
 # correlations for molecules with successful conformers
 numeric_result = successful_conformers.select_dtypes(include=["number"])  # Select numeric columns only

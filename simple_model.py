@@ -56,7 +56,7 @@ plt.imshow(img)
 plt.axis('off')  # Hide axes
 plt.show()
 
-# Create a DataFrame with outliers, including SMILES, predicted, and actual values
+
 outliers_info = outliers[['smiles']].copy()
 outliers_info['Predicted_mu'] = pd.Series(y_pred, index=y_test.index)[outlier_indices].values
 outliers_info['Actual_mu'] = y_test[outlier_indices].values
