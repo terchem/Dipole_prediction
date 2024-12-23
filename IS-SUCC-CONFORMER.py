@@ -6,7 +6,6 @@ from rdkit.Chem import AllChem
 def check_3d_conformer(smiles):
     """
     Check if a 3D conformer can be successfully generated for a given SMILES string.
-    Returns 1 if successful, 0 otherwise.
     """
     mol = Chem.MolFromSmiles(smiles)
     if mol:
@@ -40,11 +39,11 @@ def main():
     if "smiles" not in data.columns:
         raise ValueError("The dataset must contain a 'SMILES' column for RDKit processing.")
 
-    # Check 3D conformer generation for each molecule
+
     print("Checking 3D conformer generation...")
     data["ConformerSuccess"] = data["smiles"].apply(check_3d_conformer)
 
-    # Save the results
+    
     output_path = "conformer_check_results.csv"
     data.to_csv(output_path, index=False)
     print(f"Results saved to: {output_path}")
