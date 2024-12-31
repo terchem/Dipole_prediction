@@ -1,1 +1,0 @@
-There's clearly a problem with somewhat symmetric alcohols, despite the attempt to account for this factor by including topological descriptors. Most of them fall into the outlier category
